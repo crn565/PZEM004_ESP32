@@ -121,7 +121,7 @@ void appendFile(fs::FS &fs, const char * path, const char * message){
     Serial.println("Failed to open file for appending");
     return;
   }
-  if(file.print(message)){
+  if(file.println(message)){
       Serial.println("Message appended");
   } else {
     Serial.println("Append failed");
@@ -213,13 +213,13 @@ Serial.println("WRITEFILE.....");
  ano = now.year();
  mes = now.month();
  dia = now.day();
-  horas = now.hour();
-  minutos = now.minute();
-  segundos = now.second();
-  Fecha = ano + "/" + mes + "/" + dia;
-  Hora = horas + ":" + minutos + ":" + segundos;
+ horas = now.hour();
+ minutos = now.minute();
+ segundos = now.second();
+ Fecha = ano + "/" + mes + "/" + dia;
+ Hora = horas + ":" + minutos + ":" + segundos;
   /////////////////////////////////////////////
-  Nombrearchivo ="/"+ ano + mes + dia + ".txt";
+  Nombrearchivo ="/"+ ano + mes + dia + horas+ minutos+ segundos +".txt";
 
 delay (2000);
 Serial.print("fichero nuevo:");
@@ -229,7 +229,7 @@ Serial.println(Nombrearchivo);
 String    Imprimir2 = "TS;V;I;W;F;CF";
 
 
-char Buf[50];
+char Buf[20];
 Imprimir2.toCharArray(Buf, 50);
 char Buf2[20];
 Nombrearchivo.toCharArray(Buf2, 50);
