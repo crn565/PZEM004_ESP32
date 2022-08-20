@@ -102,11 +102,18 @@ Serial.println("WRITEFILE.....");
     Serial.println("Failed to open file for writing");
     return;
   }
-  if(file.print(message)){
+  if(file.println(message)){
     Serial.println("File written");
   } else {
     Serial.println("Write failed");
   }
+//insertar una linea en blanco
+ if(file.println("")){
+    Serial.println("File written");
+  } else {
+    Serial.println("Write failed");
+  }
+  
   file.close();
 }
 
@@ -165,8 +172,8 @@ void setup() {
 
 Serial.print("Inicializando tarjeta SD...");
   delay(2000);
+
   if(!SD.begin(SS)){
- // if(!SD.begin(5)){
     Serial.println("Card Mount Failed");
     return;
   }
@@ -208,8 +215,6 @@ Serial.println("WRITEFILE.....");
 
     
  DateTime now = rtc.now();
-   /* each sec update the display */
- 
  ano = now.year();
  mes = now.month();
  dia = now.day();
@@ -218,8 +223,8 @@ Serial.println("WRITEFILE.....");
  segundos = now.second();
  Fecha = ano + "/" + mes + "/" + dia;
  Hora = horas + ":" + minutos + ":" + segundos;
-  /////////////////////////////////////////////
-  Nombrearchivo ="/"+ ano + mes + dia + horas+ minutos+ segundos +".txt";
+ /////////////////////////////////////////////
+ Nombrearchivo ="/"+ ano + mes + dia + horas+ minutos+ segundos +".txt";
 
 delay (2000);
 Serial.print("fichero nuevo:");
@@ -234,7 +239,7 @@ Imprimir2.toCharArray(Buf, 50);
 char Buf2[20];
 Nombrearchivo.toCharArray(Buf2, 50);
   
-writeFile(SD, Buf2, Buf); //Failed to open file for writing
+writeFile(SD, Buf2, Buf); 
 
 Serial.println("LISTADO DESPUES.....");
 listDir(SD, "/", 0);
@@ -261,23 +266,6 @@ void loop() {
       
     DateTime now = rtc.now();
    /* each sec update the display */
- 
-//  ano = now.year();
-//  mes = now.month();
-//  dia = now.day();
-//  horas = now.hour();
-//  minutos = now.minute();
-//  segundos = now.second();
-//  Fecha = ano + "/" + mes + "/" + dia;
- // Hora = horas + ":" + minutos + ":" + segundos;
-  /////////////////////////////////////////////
-//  Nombrearchivo = ano + mes + dia + ".txt";
-
-
-
-
-
-
   my_time.Year = now.year()- 1970; //time since 19700
   my_time.Month = now.month() - 1; // months sice January
   my_time.Day=now.day();
@@ -296,35 +284,24 @@ void loop() {
     else
     {   ++milliseconds;
     }
- //Serial.print("ms:");
- // Serial.print (milliseconds);
- // Serial.print(";");
 
 String kk;
 
 kk=unix_timestamp;
 
-//Serial.print("string=");
-//Serial.print (kk);
-//Serial.print(";");
-
 float pp=kk.toInt();
-
-//Serial.print("floatg=");
-//Serial.print (pp);
-//Serial.print(";");
   
-  timestamp13=1000*pp + milliseconds;
+timestamp13=1000*pp + milliseconds;
   
 
 
 Serial.print(timestamp13);
 Serial.print(";");
 String p1=";"; 
- Serial.println ((String)voltage+p1+(String)power+p1+(String)energy+p1+(String)frequency+p1+(String)pf);
+Serial.println ((String)voltage+p1+(String)power+p1+(String)energy+p1+(String)frequency+p1+(String)pf);
   
  /////////////////////////////////////////////
-    Imprimir = timestamp13 + ";" + (String)voltage + ";" + (String)power +";"+ (String)energy + ";" + (String)frequency +";"+ (String)pf;
+ Imprimir = timestamp13 + ";" + (String)voltage + ";" + (String)power +";"+ (String)energy + ";" + (String)frequency +";"+ (String)pf;
 
 
 
@@ -333,11 +310,6 @@ Imprimir.toCharArray(Buf, 50);
 char Buf2[20];
 Nombrearchivo.toCharArray(Buf2, 50);
 appendFile(SD, Buf2, Buf);
-
-//appendFile(SD, "/hello.txt", Buf);
-//writeFile(SD, "/hello.txt", Buf);
-
-//  delay(2000);
 
  
 }
