@@ -108,11 +108,11 @@ Serial.println("WRITEFILE.....");
     Serial.println("Write failed");
   }
 //insertar una linea en blanco
- if(file.println("")){
-    Serial.println("File written");
-  } else {
-    Serial.println("Write failed");
-  }
+// if(file.println("")){
+//    Serial.println("File written");
+ // } else {
+ //   Serial.println("Write failed");
+ // }
   
   file.close();
 }
@@ -139,8 +139,8 @@ void appendFile(fs::FS &fs, const char * path, const char * message){
 
 
 void setup() {
-   // Serial.begin(115200);
-      Serial.begin(9600);
+   Serial.begin(115200);
+  //    Serial.begin(9600);
       
      //Serial.begin(2000000);
     // Uncomment in order to reset the internal energy counter
@@ -256,11 +256,11 @@ void loop() {
    // Serial.println(pzem.readAddress(), HEX);
 
     // Read the data from the sensor
-    float voltage = pzem.voltage();
-    float current = pzem.current();
-    float power = pzem.power();
-    float energy = pzem.energy();
-    float frequency = pzem.frequency();
+    float voltage = pzem.voltage();  //Volt
+    float current = pzem.current();  //Amp
+    float power = pzem.power();   //watt
+    //float energy = pzem.energy(); //kwh
+    float frequency = pzem.frequency(); //hz
     float pf = pzem.pf();
    
       
@@ -286,27 +286,22 @@ void loop() {
     }
 
 String kk;
-
 kk=unix_timestamp;
-
 float pp=kk.toInt();
-  
 timestamp13=1000*pp + milliseconds;
-  
-
-
-Serial.print(timestamp13);
-Serial.print(";");
-String p1=";"; 
-Serial.println ((String)voltage+p1+(String)power+p1+(String)energy+p1+(String)frequency+p1+(String)pf);
+//Serial.print(timestamp13);
+//Serial.print(";");
+//Serial.println ((String)voltage+p1+(String)current+p1+(String)power+p1+(String)frequency+p1+(String)pf);
   
  /////////////////////////////////////////////
- Imprimir = timestamp13 + ";" + (String)voltage + ";" + (String)power +";"+ (String)energy + ";" + (String)frequency +";"+ (String)pf;
+ Imprimir = (String)timestamp13 + ";" + (String)voltage + ";" + (String)current +";"+ (String)power + ";" + (String)frequency +";"+ (String)pf;
 
 
 
 char Buf[50];
-Imprimir.toCharArray(Buf, 50);
+Imprimir.toCharArray(Buf, 60);
+Serial.println (Buf);
+
 char Buf2[20];
 Nombrearchivo.toCharArray(Buf2, 50);
 appendFile(SD, Buf2, Buf);
