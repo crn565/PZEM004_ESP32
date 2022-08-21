@@ -3,8 +3,11 @@
 ## Componentes
 
 -ESP32 (DO IT ESP32 DEVKIT)
+
 -PZEM004  
+
 -DS 3231 (RTC)
+
 -LECTOR SD
 
 
@@ -14,9 +17,13 @@
 ## PZEM
 
 ESP32   PZEM004
+
 GPIO16 =TX
+
 GPIO17=RV
+
 3.3V =VCC
+
 GND=GND
 
 
@@ -26,20 +33,30 @@ GND=GND
 ## SD
 
 ESP32  RTC
+
 5V    VCC
+
 GND    GND
+
 GOIO19  MISO
+
 GPIO23 MOSI
+
 GPO18 SCK/CLK
+
 GPIO05 CS
 
 
 ## RTC
 
 ESP32  RTC
+
 3.3    VCC
+
 GND    GND
+
 GPIO22  SCL
+
 GPIO21 SDA
 
 
