@@ -1,3 +1,5 @@
+*Montaje de prueba  datalogger para PZEM004
+
 El [Pzem004](https://amzn.to/3Ea4Vcw) es un módulo de prueba de monitorización eléctrica que incluye un transformador de corriente que viene además ya calibrado. El módulo puede usarse para medir la energía, el voltaje y la corriente, y luego mostrarlo en un PC u otros terminales ofreciendo una precisión del 1%.
 
 En la versión con Display incluye un botón de restablecimiento que puede restablecer los datos de energía simplemente pulsándolo. Además, puede almacenar datos cuando se apaga, y almacenar los datos de energía acumulados antes de apagarse, por lo que es muy conveniente usarlo.
