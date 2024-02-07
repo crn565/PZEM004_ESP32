@@ -146,7 +146,7 @@ Para ciertamente este montaje no conlleve ningún peligro debemos aislar ambas p
 
 ![](media/d5a8bee906e9d937c8d626db8cbbff8c.png)
 
-Mejora circuito Básico con lector SD
+# Mejora circuito Básico con lector SD
 
 El montaje anterior se puede mejorar usando un ESP32 y añadiendo un RTC y un lector de tarjetas SD junto al Modulo PZEM004
 
