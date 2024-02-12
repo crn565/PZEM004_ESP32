@@ -1,10 +1,11 @@
 # Montaje de prueba  datalogger para PZEM004
 
-El [Pzem004](https://amzn.to/3Ea4Vcw) es un módulo de prueba de monitorización eléctrica que incluye un transformador de corriente que viene además ya calibrado. El módulo puede usarse para medir la energía, el voltaje y la corriente, y luego mostrarlo en un PC u otros terminales ofreciendo una precisión del 1%.  En la versión con Display incluye un botón de restablecimiento que puede restablecer los datos de energía simplemente pulsándolo. demás, puede almacenar datos cuando se apaga, y almacenar los datos de energía acumulados antes de apagarse, por lo que es muy conveniente usarlo.
+El [Pzem004](https://amzn.to/3Ea4Vcw) es un módulo de prueba de monitorización eléctrica que incluye un sensor de corriente( abierto o no segun version) que viene además ya calibrado. El módulo puede usarse para medir la energía, el voltaje y la corriente, y luego mostrarlo en un PC u otros terminales ofreciendo una precisión del 1%.  En la versión con Display incluye un botón de restablecimiento que puede restablecer los datos de energía simplemente pulsándolo. Además, puede almacenar datos cuando se apaga, y almacenar los datos de energía acumulados antes de apagarse, por lo que es muy conveniente usarlo.
 
-Existe  una ultima version mejorada donde han mejorado aun mas la precision y han dotado de compatibilidad con modbus-RTU a traves de  RS485.
 
-Es  asimismo un módulo muy económico, de pequeño tamaño ( menor que una tarjeta de crédito), autoalimentado y viene calibrado de fábrica.
+Existe  una ultima version mejorada V 3.0 donde han mejorado aun mas la precision , han cambiado el diseño  para soldarlo a una PCB,  y además han dotado de compatibilidad con modbus-RTU a traves de RS485.
+
+Es  asimismo un módulo muy económico, de pequeño tamaño (menor que una tarjeta de crédito), autoalimentado y viene calibrado de fábrica.
 
 Gracias a que todas las versiones equipan un interfaz de comunicación de datos serie TTL, puede leer y configurar los parámetros relevantes a través del puerto serie que podemos capturar con un microcontrolador como por ejemplo un ESP32.
 
